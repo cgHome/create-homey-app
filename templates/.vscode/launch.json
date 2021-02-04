@@ -1,0 +1,22 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "chrome",
+			"request": "attach",
+			"name": "Attach to Chrome",
+			"port": 9222,
+			"webRoot": "${workspaceFolder}"
+		},
+
+		{
+			"type": "node",
+			"request": "attach",
+			"name": "Attach to Homey",
+			"address": "192.168.50.xx",
+			"port": 9229,
+			"localRoot": "${workspaceFolder}",
+			"remoteRoot": "/"
+		}
+	]
+}

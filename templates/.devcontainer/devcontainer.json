@@ -1,0 +1,18 @@
+{
+   "name": "${localWorkspaceFolderBasename}",
+   "dockerFile": "Dockerfile",
+   "extensions": [
+      "mutantdino.resourcemonitor",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode"
+   ],
+   "settings": {
+      "terminal.integrated.shell.linux": "/bin/zsh"
+   },
+   "forwardPorts": [
+      9229
+   ],
+   "postCreateCommand": "bash ${containerWorkspaceFolder}/.devcontainer/install-dev-tools.sh",
+   "postStartCommand": "npm install",
+   "remoteUser": "node",
+}

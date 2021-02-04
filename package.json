@@ -1,0 +1,44 @@
+{
+  "name": "@cghome/create-homey-app",
+  "version": "0.0.1",
+  "description": "Create a (remote) development enivorment for a homey-app",
+  "main": "index.js",
+  "bin": {
+    "@cghome/create-homey-app": "./bin/create-homey-app",
+    "create-homey-app": "./bin/create-homey-app"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "node create-homey-app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgHome/homey.dev.git"
+  },
+  "keywords": [
+    "cli",
+    "homey",
+    "app",
+    "create-homey-app",
+    "remode-development-enivorment"
+  ],
+  "author": "Chris Gross <cgHome@cflat-inc.org> (wwww.cflat-inc.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cgHome/homey.dev/issues"
+  },
+  "homepage": "https://github.com/cgHome/homey.dev#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "execa": "^4.0.3",
+    "fs-extra": "^9.0.1",
+    "prompts": "^2.4.0",
+    "simple-git": "^2.23.0",
+    "tempy": "^1.0.0",
+    "which": "^2.0.2",
+    "yargs": "^16.1.0"
+  }
+}
