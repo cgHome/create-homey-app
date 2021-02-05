@@ -1,10 +1,5 @@
 #!/usr/bin/env node
 
-// see: https://medium.com/northcoders/creating-a-project-generator-with-node-29e13b3cd309
-// see: https://www.twilio.com/blog/how-to-build-a-cli-with-node-js
-// see: https://github.com/sindresorhus/np
-
-"use strict";
 const fs = require("fs");
 const path = require("path");
 const yargs = require("yargs/yargs");

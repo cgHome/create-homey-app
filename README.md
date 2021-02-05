@@ -6,12 +6,12 @@ Create Homey-App without build configuration. In a single command, this tool boo
 
 "Old" apps can also be upgraded, if the command is called in the existing app-root directory.
 
-- Creating an App
-- Homey Apps SDK
+- [Creating an App](https://github.com/cgHome/homey.devApp#creating-or-update-an-homey-app)
+- [Homey Apps SDK v3](https://apps-sdk-v3.developer.athom.com/)
 
 Create Homey App works on macOS, Windows, and Linux.\
-If something doesn’t work, please file an issue.\
-If you have questions or need help, please ask in Homey Community Forum.
+If something doesn’t work, please file an [issue](https://github.com/cgHome/homey.devApp/issues).\
+If you have questions or need help, please ask in [Homey Community Forum](https://community.athom.com/).
 
 ----
 
@@ -48,7 +48,7 @@ _([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7
 npx create-homey-app [my-app]
 
 # Invoking from the github repository
-npx github:cghome/homey.devApp -c 'create-homey-app' [my-app]
+npx github:cghome/homey.devApp create-homey-app [my-app]
 ```
 
 ### npm
@@ -71,6 +71,10 @@ Inside that directory, it will generate the initial project structure and instal
 
 ----
 
+### npm-scripts
+
+----
+
 ## Tutorials
 
 - [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers)
@@ -82,11 +86,17 @@ Inside that directory, it will generate the initial project structure and instal
 - [VS Code - Contributing](https://github.com/microsoft/vscode-dev-containers/blob/master/CONTRIBUTING.md)
 - [VS Code - Scripts:](https://github.com/microsoft/vscode-dev-containers/tree/master/script-library)
 
+## Create apps
+
+- see: <https://medium.com/northcoders/creating-a-project-generator-with-node-29e13b3cd309>
+- see: <https://www.twilio.com/blog/how-to-build-a-cli-with-node-js>
+- see: <https://github.com/sindresorhus/np>
+
 ----
 
 ## Changelog
 
-v1.0.0
+v0.1.0
 
 - Initial commit
 
