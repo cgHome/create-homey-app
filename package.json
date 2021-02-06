@@ -1,10 +1,10 @@
 {
   "name": "homey.devApp",
   "version": "0.0.1",
-  "description": "Create a (remote) development environment for a homey-app",
+  "description": "Create a Homey-App with a (remote) development environment",
   "main": "index.js",
   "bin": {
-    "create-homey-app": "index.js"
+    "create-homey-app": "./index.js"
   },
   "publishConfig": {
     "access": "public"
