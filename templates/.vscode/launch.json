@@ -1,14 +1,6 @@
 {
 	"version": "0.2.0",
-	"configurations": [
-		{
-			"type": "chrome",
-			"request": "attach",
-			"name": "Attach to Chrome",
-			"port": 9222,
-			"webRoot": "${workspaceFolder}"
-		},
-
+	"configurations": [		
 		{
 			"type": "node",
 			"request": "attach",
@@ -17,6 +9,13 @@
 			"port": 9229,
 			"localRoot": "${workspaceFolder}",
 			"remoteRoot": "/"
+		},
+		{
+			"type": "chrome",
+			"request": "attach",
+			"name": "Attach to Chrome",
+			"port": 9222,
+			"webRoot": "${workspaceFolder}"
 		}
 	]
 }

@@ -48,13 +48,13 @@ _([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7
 npx create-homey-app [my-app]
 
 # Invoking from the github repository
-npx github:cghome/homey.devApp create-homey-app [my-app]
+npx github:cghome/create-homey-app [my-app]
 ```
 
 ### npm
 
 ```sh
-npm init create-homey-app [my-app]
+npm init homey-app [my-app]
 ```
 
 _`npm init <initializer>` is available in npm 6+_
@@ -71,16 +71,64 @@ Inside that directory, it will generate the initial project structure and instal
 
 ----
 
-### npm-scripts
+## Add on's
+
+### Homey debugger
+
+Add to app.js
+
+```js
+// homey-debugger api
+
+// eslint-disable-next-line node/no-unsupported-features/node-builtins
+const inspector = require('inspector');
+
+if (process.env.DEBUG === '1') {
+  if (process.env.BRK === '1') {
+    // Block until a client has connected.
+    inspector.open(9229, '0.0.0.0', true);
+  } else {
+    // Default
+    inspector.open(9229, '0.0.0.0', false);
+  }
+}
+```
 
 ----
 
-## Tutorials
+## What's included
+
+### npm-scripts
+
+- ...
+
+- ...
+
+----
+
+## For Developers
+
+### Install Create-Homey-App
+
+```sh
+git clone https://github.com/cgHome/create-homey-app.git
+
+cd create-homey-app
+npm link
+code .
+
+# happy coding
+
+# Test app > use JavaScript Debug Terminal
+create-homey-app [my-app]
+```
+
+### Tutorials
 
 - [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers)
 - [Dockerisieren Sie Ihre Entwicklungsumgebung in VS Code](https://ichi.pro/de/post/234589651404201)
 
-## Development Container Tips & Tricks
+### Development Container Tips & Tricks
 
 - [VS Code - Remote Development](https://github.com/microsoft/vscode-dev-containers/tree/master)
 - [VS Code - Contributing](https://github.com/microsoft/vscode-dev-containers/blob/master/CONTRIBUTING.md)

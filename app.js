@@ -15,12 +15,12 @@ const argv = yargs(process.argv.slice(2))
 	})
 	.alias("v", "version")
 	.alias("h", "help")
-	.epilog("copyright 2020").argv;
+	.epilog("copyright 2021").argv;
 
-const homeyPath = path.join(__dirname, argv._[0] || "./");
+const homeyPath = path.join(process.cwd(), argv._[0] || "./");
 
 if (argv.yes) {
-	runTasks(homeyPath);
+	runTasks();
 } else {
 	(async () => {
 		const response = await prompts({
@@ -30,17 +30,17 @@ if (argv.yes) {
 			initial: true,
 		});
 		if (response.value) {
-			runTasks(homeyPath);
+			runTasks();
 		}
 	})();
 }
 
-function runTasks(homeyPath) {
+function runTasks() {
 	Promise.resolve(true)
 		.then(tasks.initHomeyApp(homeyPath))
-		.then(tasks.createHomeyApp(homeyPath))
-		.then(tasks.copyAppTemplates(homeyPath))
+		.then(tasks.createHomeyApp())
+		.then(tasks.copyAppTemplates())
 		.then(tasks.handleGitRepo())
-		.then(tasks.logSuccess("create-homey-app finished"))
+		.then(tasks.logSuccess(`create-homey-app on: ${homeyPath} finished`))
 		.catch((err) => tasks.logError(err.message));
 }

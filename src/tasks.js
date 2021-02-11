@@ -5,7 +5,7 @@ const which = require("which");
 const execa = require("execa");
 const chalk = require("chalk");
 
-const appPath = process.cwd();
+const appPath = process.env.PWD;
 
 function log(data) {
 	console.log(chalk.grey("— ", data));
@@ -35,31 +35,32 @@ function initHomeyApp(homeyPath) {
 	}
 }
 
-function createHomeyApp(homeyPath) {
+function createHomeyApp() {
 	try {
 		logSuccess("Create homey-app...");
 		if (fs.existsSync("./app.json")) {
 			logSuccess("App already exist");
 		} else {
+			const basePath = process.cwd();
 			const opt = { shell: true, stdio: "inherit" };
 			if (which.sync("homey", { nothrow: true })) {
-				log("Use installed homey-cli > fast-mode");
-				execa.sync("homey", ["app", "create", "-p", homeyPath], opt);
+				log("Use installed homey-cli...");
+				execa.sync("homey", ["app", "create", "-p", basePath], opt);
 			} else {
-				log("Use npx homey > slow-mode");
-				execa.sync("npx", ["-q", "-p homey", "homey", "app", "create", "-p", homeyPath], opt);
+				log("Use npx homey...");
+				execa.sync("npx", ["-q", "-p homey", "homey", "app", "create", "-p", basePath], opt);
 			}
 			// move app up to homey-app base directory
 			const appDir = fs
-				.readdirSync(homeyPath)
+				.readdirSync(basePath)
 				.filter(
 					(f) =>
-						fs.statSync(path.join(homeyPath, f)).isDirectory() &&
-						fs.existsSync(path.join(homeyPath, f, "./app.json"))
+						fs.statSync(path.join(basePath, f)).isDirectory() &&
+						fs.existsSync(path.join(basePath, f, "./app.json"))
 				)[0];
-			//fs.moveSync(path.join(homeyPath, appDir), homeyPath, { overwrite: true });
-			fs.copySync(path.join(homeyPath, appDir), homeyPath);
-			fs.removeSync(path.join(homeyPath, appDir));
+			//fs.moveSync(path.join(basePath, appDir), basePath, { overwrite: true });
+			fs.copySync(path.join(basePath, appDir), basePath);
+			fs.removeSync(path.join(basePath, appDir));
 			logSuccess("Homey-app created");
 		}
 	} catch (err) {
@@ -72,10 +73,11 @@ function copyAppTemplates() {
 	try {
 		logSuccess("Copy templates...");
 		// Copy file
-		_copyFiles("root/.gitignore", "./.gitignore", false);
-		_copyFiles("root/.npm-init.js", "./.npm-init.js");
+		_copyFiles("files/.gitignore", "./.gitignore", false);
+		_copyFiles("files/.npm-init.js", "./.npm-init.js");
 		// Copy directory
 		_copyFiles(".vscode", ".vscode", false);
+		//_copyFiles(".github", ".github", false);
 		_copyFiles(".devcontainer", ".devcontainer");
 		logSuccess("Templates copied");
 	} catch (err) {
@@ -96,9 +98,9 @@ function _copyFiles(iSrc, iDest, overwrite = true) {
 function handleGitRepo() {
 	try {
 		logSuccess("Handle git-repo...");
-		let commitMsg = "Update app using Create Homey App";
+		let commitMsg = "App updated with create-homey-app";
 		if (!fs.existsSync("./.git")) {
-			commitMsg = "Initialize app using Create Homey App";
+			commitMsg = "App initialized with create-homey-app";
 			_initGit();
 		}
 		_pushGit(commitMsg);
@@ -131,7 +133,7 @@ function _initGit() {
 function _pushGit(commitMsg) {
 	try {
 		_execGit(["add", "."]);
-		_execGit(["commit", "-m", `${commitMsg}`]);
+		_execGit(["commit", "-am", `${commitMsg}`]);
 		if (_remoteRepoExist()) {
 			_execGit(["push", "-u", "origin", "main"]);
 		}
