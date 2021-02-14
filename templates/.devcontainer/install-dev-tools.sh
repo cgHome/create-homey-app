@@ -7,19 +7,16 @@ npm init --quiet -y 1>/dev/null
 
 # ESLint config for Athom B.V. JavaScript projects.
 npm install --save-dev \
-   prettier \
-   eslint \
-   eslint-config-athom
+  eslint \
+  eslint-config-athom \
+  eslint-config-prettier \
+  eslint-plugin-prettier \
+  prettier
 
-if [ ! -f ".eslintrc.json" ]; then
-cat <<EOF > .eslintrc.json
-{
-  "extends": "athom"
-}
-EOF
-fi
+npx install-peerdeps --dev \
+  eslint-config-airbnb-base
 
-# Committing the changes 
+# Commiting the changes 
 git add .
-## Command failed: /bin/sh ... > need to be fixed
-# git commit --amend --no-edit
+# > cannot write to ./git directory, to be fixed
+# git commit -am "Dev-Tools installed"

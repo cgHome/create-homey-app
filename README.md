@@ -79,7 +79,6 @@ Add to app.js
 
 ```js
 // homey-debugger api
-
 // eslint-disable-next-line node/no-unsupported-features/node-builtins
 const inspector = require('inspector');
 
