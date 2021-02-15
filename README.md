@@ -6,11 +6,11 @@ Create Homey-App without build configuration. In a single command, this tool boo
 
 "Old" apps can also be upgraded, if the command is called in the existing app-root directory.
 
-- [Creating an App](https://github.com/cgHome/homey.devApp#creating-or-update-an-homey-app)
+- [Creating an App](https://github.com/cgHome/create-homey-app#creating-or-update-an-homey-app)
 - [Homey Apps SDK v3](https://apps-sdk-v3.developer.athom.com/)
 
 Create Homey App works on macOS, Windows, and Linux.\
-If something doesn’t work, please file an [issue](https://github.com/cgHome/homey.devApp/issues).\
+If something doesn’t work, please file an [issue](https://github.com/cgHome/create-homey-app/issues).\
 If you have questions or need help, please ask in [Homey Community Forum](https://community.athom.com/).
 
 ----
