@@ -121,9 +121,7 @@ function _initGit() {
 		if (_remoteRepoExist()) {
 			_execGit(["pull", "origin", "main"]);
 		} else {
-			log("Create remote repository");
-			log("> vscode > F1 > Publish to GitHub");
-			log(`> GitHub "https://www.github.com/new" > ${user} / ${repoName}`);
+			log("Create remote repository: vscode > dev-container > npm run createRemoteRepo");
 		}
 	} catch (err) {
 		logError(err);

@@ -9,9 +9,8 @@ if(fs.existsSync(dirname + "/.homeycompose/app.json")) {
 }
 
 const scripts = {
-	"start": "npm install && homey app install",
 	"test": "homey app run",
-	"debug": "BRK=true homey app run",
+	"start": "npm install && homey app install",
 	"build": "homey app build",
 	"publish": "homey app publish",
 	"postpublish": "npm run init && git commit --amend --no-edit ./package.json && git push -f origin main",
@@ -19,8 +18,7 @@ const scripts = {
 	"validateTest": "homey app validate",
 	"init": "npm init --quiet -y 1>/dev/null",
 	"lint": "eslint .",
-	"createRemoteRepo": "npm run _createRemoteRepo --silent && git commit --amend --no-edit && git push -f origin main",
-	"_createRemoteRepo": "if [[ -z \"$(git ls-remote -q &> /dev/null)\" ]];\n then hub create -d \"$npm_package_description\" -h $npm_package_homepage ${PWD##*/} \n else echo \"Repository exist\"\n fi"
+	"createRemoteRepo": "hub create -d \"$npm_package_description\" -h $npm_package_homepage ${PWD##*/} && git commit --amend --no-edit && git push -u origin main"
 }
 
 // set "homey" package.json
