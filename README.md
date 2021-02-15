@@ -78,19 +78,16 @@ Inside that directory, it will generate the initial project structure and instal
 Add to app.js
 
 ```js
-// homey-debugger api
-// eslint-disable-next-line node/no-unsupported-features/node-builtins
-const inspector = require('inspector');
+/**
+ * homey-debugger
+ */
 
-if (process.env.DEBUG === '1') {
-  if (process.env.BRK === '1') {
-    // Block until a client has connected.
-    inspector.open(9229, '0.0.0.0', true);
-  } else {
-    // Default
-    inspector.open(9229, '0.0.0.0', false);
-  }
+/* eslint-disable */
+if (process.env.DEBUG === "1") {
+  require("inspector").open(9229, "0.0.0.0", false);
+  // require("inspector").open(9229, "0.0.0.0", true);
 }
+/* eslint-enable */
 ```
 
 ----
