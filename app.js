@@ -17,7 +17,6 @@ const argv = yargs(process.argv.slice(2))
 	.alias("h", "help")
 	.epilog("copyright 2021").argv;
 
-const appPath = __dirname; 
 const homeyPath = path.join(process.cwd(), argv._[0] || "./");
 
 if (argv.yes) {
@@ -38,7 +37,7 @@ if (argv.yes) {
 
 function runTasks() {
 	Promise.resolve(true)
-		.then(tasks.initHomeyApp(appPath, homeyPath))
+		.then(tasks.initHomeyApp(homeyPath))
 		.then(tasks.createHomeyApp())
 		.then(tasks.copyAppTemplates())
 		.then(tasks.handleGitRepo())

@@ -5,7 +5,7 @@ const which = require("which");
 const execa = require("execa");
 const chalk = require("chalk");
 
-let appPath;
+const appPath = path.join(__dirname, '..');
 
 function log(data) {
 	console.log(chalk.grey("— ", data));
@@ -20,10 +20,9 @@ function logError(data) {
 	console.error(chalk.red("✖ ", data));
 }
 
-function initHomeyApp(appPath, homeyPath) {
+function initHomeyApp(homeyPath) {
 	try {
 		logSuccess("Initialize app...");
-		appPath = appPath;
 		if (!fs.existsSync(homeyPath)) {
 			fs.mkdirSync(homeyPath);
 		}
