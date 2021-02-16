@@ -134,7 +134,8 @@ function _pushGit(commitMsg) {
 		_execGit(["add", "."]);
 		_execGit(["commit", "-am", `${commitMsg}`]);
 		if (_remoteRepoExist()) {
-			_execGit(["push", "-u", "origin", "main"]);
+			const branch = _execGit(["branch"], { shell: true }).replace("* ", "");
+			_execGit(["push", "-u", "origin", branch]);
 		}
 	} catch (err) {
 		logError(err);
