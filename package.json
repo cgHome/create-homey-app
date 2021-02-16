@@ -1,6 +1,6 @@
 {
   "name": "create-homey-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create a Homey-App with a (remote) development environment",
   "main": "app.js",
   "bin": {
