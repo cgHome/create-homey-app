@@ -99,9 +99,9 @@ function _copyFiles(iSrc, iDest, overwrite = true) {
 function handleGitRepo() {
 	try {
 		logSuccess("Handle git-repo...");
-		let commitMsg = "App updated with create-homey-app";
+		let commitMsg = "App updated with cha";
 		if (!fs.existsSync("./.git")) {
-			commitMsg = "App initialized with create-homey-app";
+			commitMsg = "App initialized with cha";
 			_initGit();
 		}
 		_pushGit(commitMsg);
@@ -119,7 +119,7 @@ function _initGit() {
 		_execGit(["branch", "-M", "main"]);
 		_execGit(["remote", "add", "origin", `https://github.com/${user}/${repoName}.git`]);
 		if (_remoteRepoExist()) {
-			_execGit(["pull", "origin", "main"]);
+			_execGit(["pull", "origin", _execGit(["branch"], { shell: true }).replace("* ", "")]);
 		} else {
 			log("Create remote repository: vscode > dev-container > npm run createRemoteRepo");
 		}
@@ -134,8 +134,7 @@ function _pushGit(commitMsg) {
 		_execGit(["add", "."]);
 		_execGit(["commit", "-am", `${commitMsg}`]);
 		if (_remoteRepoExist()) {
-			const branch = _execGit(["branch"], { shell: true }).replace("* ", "");
-			_execGit(["push", "-u", "origin", branch]);
+			_execGit(["push", "-u", "origin", _execGit(["branch"], { shell: true }).replace("* ", "")]);
 		}
 	} catch (err) {
 		logError(err);
