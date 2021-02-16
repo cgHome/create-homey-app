@@ -5,7 +5,7 @@ const which = require("which");
 const execa = require("execa");
 const chalk = require("chalk");
 
-const appPath = process.env.PWD;
+const appPath = process.cwd();
 
 function log(data) {
 	console.log(chalk.grey("— ", data));

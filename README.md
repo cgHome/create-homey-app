@@ -11,7 +11,7 @@ Create Homey-App without build configuration. In a single command, this tool boo
 
 Create Homey App works on macOS, Windows, and Linux.\
 If something doesn’t work, please file an [issue](https://github.com/cgHome/create-homey-app/issues).\
-If you have questions or need help, please ask in [Homey Community Forum](https://community.athom.com/).
+If you have questions or need help, please ask in [Homey Community Forum](https://community.athom.com/t/create-homey-app-create-homey-app-without-build-configuration/43060).
 
 ----
 
@@ -36,6 +36,12 @@ code .
 If you've previously installed [Homey Command-line interface](https://www.npmjs.com/package/homey) globally via `npm i -g homey`, we recommend you uninstall the package using `npm uninstall -g homey` or `yarn global remove homey` to ensure that npx always uses the latest version.
 
 _([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))_
+
+----
+
+## Note
+
+**This is my second attempt to normalize and simplify the structure of my homey app development environment with VSCode.**
 
 ----
 
@@ -96,9 +102,16 @@ if (process.env.DEBUG === "1") {
 
 ### npm-scripts
 
-- ...
-
-- ...
+- test - homey app run
+- start - npm install && homey app install
+- build - homey app build
+- publish - homey app publish
+- postpublish - npm run init && git commit --amend --no-edit ./package.json && git push -f origin main
+- validate - homey app validate -l publish
+- validateTest - homey app validate
+- init - npm init --quiet -y 1>/dev/null
+- lint - eslint .
+- createRemoteRepo - hub create -d "$npm_package_description" -h $npm_package_homepage ${PWD##*/} && git commit --amend --no-edit && git push -u origin main
 
 ----
 
@@ -130,7 +143,7 @@ create-homey-app [my-app]
 - [VS Code - Contributing](https://github.com/microsoft/vscode-dev-containers/blob/master/CONTRIBUTING.md)
 - [VS Code - Scripts:](https://github.com/microsoft/vscode-dev-containers/tree/master/script-library)
 
-## Create apps
+### Create apps
 
 - see: <https://medium.com/northcoders/creating-a-project-generator-with-node-29e13b3cd309>
 - see: <https://www.twilio.com/blog/how-to-build-a-cli-with-node-js>
@@ -147,6 +160,10 @@ v0.1.0
 ----
 
 ## ToDo
+
+- Add Screencast
+- Add localHomey - Parameter
+- Remove createRemoteRepo npm-script if the remote repository exists
 
 ----
 
