@@ -1,6 +1,7 @@
-# see: https://medium.com/javascript-in-plain-english/publish-update-npm-packages-with-github-actions-e4d786ffd62a
-
 name: npm-publish
+
+# see: https://medium.com/javascript-in-plain-english/publish-update-npm-packages-with-github-actions-e4d786ffd62a
+# see: https://github.com/marketplace/actions/publish-to-npm
 
 on:
   release:
