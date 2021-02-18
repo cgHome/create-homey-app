@@ -8,10 +8,10 @@ npm init --quiet -y 1>/dev/null
 # ESLint config for Athom B.V. JavaScript projects.
 npm install --save-dev \
   eslint \
-  eslint-config-athom \
+  prettier \
   eslint-config-prettier \
   eslint-plugin-prettier \
-  prettier
+  eslint-config-athom
 
 npx install-peerdeps --dev \
   eslint-config-airbnb-base

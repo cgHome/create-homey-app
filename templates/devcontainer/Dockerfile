@@ -26,6 +26,7 @@ RUN ash /tmp/library-scripts/common-alpine.sh \
 
 # Install node-packages
 RUN npm install -g \
+      npm-check-updates \
       homey \
       eslint \
       prettier 
