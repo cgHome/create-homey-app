@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 
 # Define homey package.json 
-npm init --quiet -y 1>/dev/null
 npm config set init-module ./.npm-init.js
 npm init --quiet -y 1>/dev/null
 
-# ESLint config for Athom B.V. JavaScript projects.
+# Install ESLint & prettier
+npm install --save-dev --save-exact \
+  prettier
 npm install --save-dev \
   eslint \
-  prettier \
+  eslint-config-athom \
   eslint-config-prettier \
-  eslint-plugin-prettier \
-  eslint-config-athom
-
-npx install-peerdeps --dev \
-  eslint-config-airbnb-base
+  eslint-plugin-prettier
+#npx install-peerdeps --dev \
+#  eslint-config-airbnb-base
 
 # Commiting the changes 
 git add .

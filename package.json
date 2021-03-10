@@ -10,8 +10,8 @@
     "access": "public"
   },
   "scripts": {
-    "start": "node app.js",
-    "create-homey-app": "node app.js"
+    "start": "node ./app.js",
+    "create-homey-app": "node ./app.js"
   },
   "repository": {
     "type": "git",
@@ -37,13 +37,5 @@
     "prompts": "^2.4.0",
     "which": "^2.0.2",
     "yargs": "^16.2.0"
-  },
-  "devDependencies": {
-    "eslint": "^7.20.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.2.1"
   }
 }

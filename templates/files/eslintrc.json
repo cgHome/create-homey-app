@@ -1,29 +1,15 @@
 {
-   "parserOptions": {
-      "ecmaVersion": 6
-   },
-   "env": {
-      "node": true
-   },
-   "extends": [
-      "eslint:recommended",
-      "airbnb-base",
-      "athom",
-      "plugin:prettier/recommended"
-   ],
-   "plugins": [
-      "prettier"
-   ],
-   "rules": {
-      "prettier/prettier": "error",
-      "no-console": [
-         "error",
-         {
-            "allow": [
-               "warn",
-               "error"
-            ]
-         }
-      ]
-   }
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "plugins": ["prettier"],
+  "extends": [
+    "athom", 
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }
