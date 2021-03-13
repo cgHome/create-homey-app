@@ -99,9 +99,9 @@ function _copyFiles(iSrc, iDest, overwrite = true) {
 function handleGitRepo() {
 	try {
 		logSuccess("Handle git-repo...");
-		let commitMsg = "App updated with cha";
+		let commitMsg = "Update project using Create Homey App";
 		if (!fs.existsSync("./.git")) {
-			commitMsg = "App initialized with cha";
+			commitMsg = "Initialize project using Create Homey App";
 			_initGit();
 		}
 		_pushGit(commitMsg);
