@@ -18,7 +18,7 @@ If you have questions or need help, please ask in [Homey Community Forum](https:
 ## Requirements
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-  - [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [VSCode Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - [Docker](https://www.docker.com/)
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en/)
@@ -110,26 +110,30 @@ if (process.env.DEBUG === "1") {
 - validate - homey app validate -l publish
 - validateTest - homey app validate
 - init - npm init --quiet -y 1>/dev/null
-- lint - eslint .
-- createRemoteRepo - hub create -d "$npm_package_description" -h $npm_package_homepage ${PWD##*/} && git commit --amend --no-edit && git push -u origin main
+- eslint - eslint
+- prettier - prettier
+- createRemoteRepo (only if remote-repository not exists) - hub create -d "$npm_package_description" -h $npm_package_homepage ${PWD##*/} && git commit --amend --no-edit && git push -u origin main && npm run init
 
 ----
 
 ## For Developers
 
-### Install Create-Homey-App
-
 ```sh
+# Install Create-Homey-App
 git clone https://github.com/cgHome/create-homey-app.git
 
 cd create-homey-app
-npm link
 code .
 
-# happy coding
+# Happy coding
 
 # Test app > use JavaScript Debug Terminal
-create-homey-app [my-app]
+npm run start -- [my-app] -OR-
+npm run create-homey-app -- [my-app]
+
+# Publish package
+npm version [patch|minor|major]
+npm publish
 ```
 
 ### Tutorials
@@ -163,7 +167,6 @@ v0.1.0
 
 - Add Screencast
 - Add localHomey - Parameter
-- Remove createRemoteRepo npm-script if the remote repository exists
 
 ----
 
