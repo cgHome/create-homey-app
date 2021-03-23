@@ -11,9 +11,8 @@ npm install --save-dev \
   eslint \
   eslint-config-athom \
   eslint-config-prettier \
-  eslint-plugin-prettier
-#npx install-peerdeps --dev \
-#  eslint-config-airbnb-base
+  eslint-plugin-prettier \
+  eslint-plugin-node
 
 # Commiting the changes 
 git add .

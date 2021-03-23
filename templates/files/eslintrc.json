@@ -1,15 +1,18 @@
 {
   "env": {
-    "browser": true,
     "node": true,
     "es6": true
   },
   "plugins": ["prettier"],
   "extends": [
-    "athom", 
+    "athom",
+    "eslint:recommended",
+    "plugin:node/recommended",
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "no-shadow": ["error", { "allow": ["current"]}],
+    "prefer-rest-params": "off",
     "prettier/prettier": "error"
   }
 }

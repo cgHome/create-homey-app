@@ -14,5 +14,5 @@
    ],
    "postCreateCommand": "bash ${containerWorkspaceFolder}/.devcontainer/install-dev-tools.sh",
    "postStartCommand": "npm install",
-   "remoteUser": "node",
+   "remoteUser": "node"
 }

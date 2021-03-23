@@ -50,7 +50,7 @@ const scripts = Object.assign({}, package.scripts || {}, {
   validate: "homey app validate -l publish",
   validateTest: "homey app validate",
   init: "npm init --quiet -y 1>/dev/null",
-  eslint: "eslint",
+  eslint: "eslint .",
   prettier: "prettier",
   createRemoteRepo: 'hub create -d "$npm_package_description" -h $npm_package_homepage ${PWD##*/} && git commit --amend --no-edit && git push -u origin main && npm run init',
 });

@@ -75,6 +75,7 @@ function copyAppTemplates() {
 		// Copy file
 		_copyFiles("files/gitignore", "./.gitignore", false);
 		_copyFiles("files/eslintrc.json", "./.eslintrc.json", false);
+		_copyFiles("files/prettierrc.json", "./.prettierrc.json", false);
 		_copyFiles("files/npm-init.js", "./.npm-init.js");
 		// Copy directory
 		_copyFiles("vscode", ".vscode", false);
